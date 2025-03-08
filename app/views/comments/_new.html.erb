@@ -1,0 +1,5 @@
+<%= form_with model: [ @post, @post.comments.build ], local: true do |form| %>
+    <strong>Enter comment:</strong>
+    <%= form.text_field :content %> <br>
+    <%= form.submit %>
+<% end %>

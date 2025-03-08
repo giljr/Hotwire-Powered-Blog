@@ -1,0 +1,57 @@
+_____________________
+
+Rails Terminal
+_____________________
+
+mkdir app/views/about && rails g controller about index
+mkdir app/views/main && rails g controller main index
+bin/dev
+clear
+rails g model User email:string password_digest:string
+rails db:migrate
+clear
+rails c
+clear
+rails db:migrate:redo
+bin/dev
+clear
+rails routes | grep sign_up
+clear
+mkdir app/views/registrations && rails g controller registrations new create
+bin/dev
+clear
+mkdir app/views/sessions && rails g controller sessions new create destroy
+bin/dev
+clear
+bin/importmap pin local-time
+bin/dev
+clear
+rails g scaffold post title body
+rails db:migrate
+bin/dev
+clear
+rails db:drop
+rails db:migrate
+bin/dev
+history
+
+_____________________
+
+Console:
+_____________________
+
+Comment.last
+Comment.all
+exit
+Post.first.update!(title: "First Post - Changed from CLI")
+quit
+User.first
+quit
+User.all
+User.create({email:"jay@gmail.com", password:"password", password_confirmaton:"password"})
+Comment.last
+exit
+comment = post.comments.create!(content: "This is the first comment from CLI.")
+post = Post.first
+Comment.last
+_____________________

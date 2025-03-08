@@ -1,0 +1,22 @@
+<h1>Welcome to Hot Blog!</h1>
+<strong>Your Local Time is:</strong>
+<%= time_tag Time.now, "data-local": "time", "data-format": "%B %e, %Y %l:%M %P" %>
+
+<% if Current.user.nil? %>
+  <p>Please Sign Up or Sign In first!</p>
+  <%= button_to "Sign Up", sign_up_path, method: :get %>
+  <br>
+  <%= button_to "Sign In", sign_in_path, method: :get %>
+<% else %>
+   <p>
+    <strong>Logged in as:</strong>
+    <%= Current.user.email %>
+  </p>
+  <p>
+    <strong>At:</strong>
+    <%= time_tag Current.user.updated_at, "data-local": "time", "data-format": "%B %e, %Y %l:%M %P" %>
+  </p>
+  <%=button_to "Posts", posts_path, method: :get %>
+  <br>
+  <%= button_to "Sign Out", sign_out_path, method: :delete %>
+<% end %>

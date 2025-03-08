@@ -1,0 +1,19 @@
+<h1>Sign Up</h1>
+  <%= form_with model: @user, url: sign_up_path, method:"post", data: {turbo:"false"} do |form| %>
+  <div>
+    <%= form.label :email, "Email address" %>
+    <%= form.text_field :email %>
+    <div>We'll never share your email with anyone else.</div>
+  </div>
+  <div>
+    <%= form.label :password, "Password" %>
+    <%= form.password_field :password %>
+  </div>
+  <div>
+    <%= form.label :password_confirmation, "Password Confirmation" %>
+    <%= form.password_field :password_confirmation %>
+  </div>
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>
