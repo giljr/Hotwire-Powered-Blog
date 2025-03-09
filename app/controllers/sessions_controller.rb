@@ -14,7 +14,9 @@ class SessionsController < ApplicationController
   end
 
   def destroy
-    session[:user_id] = nil
-    redirect_to root_path
+    session.delete(:user_id)
+    # Clear the current user as well
+    user = nil
+    redirect_to root_url, status: :see_other
   end
 end
