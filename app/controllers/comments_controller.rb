@@ -7,7 +7,7 @@ class CommentsController < ApplicationController
   
       if @comment.save
         respond_to do |format|
-          format.turbo_stream
+          format.turbo_stream # { turbo_stream.append "comments", partial: "comments/comment", locals: { comment: @comment } }
           format.html { redirect_to @post, notice: "Comment created successfully!" }
         end
       else
